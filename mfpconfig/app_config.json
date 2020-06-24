@@ -1,0 +1,51 @@
+{
+  "platforms" : [ 
+      { 
+          "applicationKey": {    
+              "version":"1.0.0",
+              "clientPlatform":"android",
+              "packageName":"com.ibm.storefront"
+          },
+          "displayName":"StoreFront",
+      "scopeElementMapping": {
+      "push.mobileclient": "",
+  "liveupdate.mobileclient": ""
+       }
+      },
+    { 
+            "applicationKey": {    
+                "version":"1.0.0",
+                "clientPlatform":"ios",
+                "bundleId":"com.ibm.storefront"
+            },
+            "displayName":"StoreFront",
+  	    "scopeElementMapping": {
+    		"push.mobileclient": "",
+		"liveupdate.mobileclient": ""
+  	     }
+    }
+  ],
+  "services": [
+      {
+          "name" : "push",
+              "settings": {
+                  "gcm": {
+                      "apiKey": "<insert apikey here>",
+                      "senderId": "<insert senderid here>"
+                  },
+                  "apns": {
+                        "certificate": "<location of .p12>",
+                        "isSandBox": true,
+			                  "password": "<password>"
+                    }
+              }
+      }  
+  ],
+  "confidentialClients": [{
+      "id" : "storefront",
+      "secret" : "storefront",
+      "allowedScope" : "messages.write push.application.*",
+      "displayName" : "StoreFront Microservices"
+    }
+  ]
+}
